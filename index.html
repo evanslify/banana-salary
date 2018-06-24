@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>你的薪水值多少香蕉？</title>
+    <style type="text/css" media="all">
+      .container {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+        height: 100vh;
+      }
+      div {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        我的薪水是
+        <input type="text" name="" id="salary-ntd" value="" />
+        ，現在值
+        <input type="text" name="" id="banana-kg" value="" disabled/>
+        公斤的香蕉。
+      </div>
+      <div>註1：香蕉價錢來自 <a href="http://www.cna.com.tw/news/ahel/201806010144-1.aspx">中央社 6/1 的新聞</a></div>
+      <div>註2：HINO XZU600L-HKMGSR 空車重 2400kg，總重 3490kg</div>
+    </div>
+  </body>
+  <script type="text/javascript">
+
+    const SALARY = document.querySelector('#salary-ntd')
+    const BANANA_KG = document.querySelector('#banana-kg')
+    const BANANA_KG_UNIT_PRICE = 5
+    SALARY.addEventListener('input', function (e) {
+      let value = e.target.value
+      if (isNaN(value)) {
+        return
+      }
+      let salary = parseInt(value, 10)
+      BANANA_KG.value = (salary / BANANA_KG_UNIT_PRICE)
+    })
+  </script>
+</html>
